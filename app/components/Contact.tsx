@@ -8,32 +8,36 @@ import Magnet from "./Magnet";
 import { motion } from "motion/react";
 import { resumeURL } from "../constant";
 
+function redirectTo(url: string) {
+  window.open(url, "_blank", "noopener,noreferrer");
+}
+
 export default function Contact() {
   const items = [
     {
       icon: <SiLeetcode size={18} />,
       label: "LeetCode",
-      onClick: () => alert("Home!"),
+      onClick: () => redirectTo("https://leetcode.com/u/Darshan98Solanki/"),
     },
     {
       icon: <SiLinkedin size={18} />,
       label: "LinkedIn",
-      onClick: () => alert("LinkedIn!"),
+      onClick: () => redirectTo("https://www.linkedin.com/in/solanki-darshan/"),
     },
     {
       icon: <SiX size={18} />,
-      label: "Profile",
-      onClick: () => alert("Profile!"),
+      label: "X",
+      onClick: () => redirectTo("https://x.com/Darshan9Solanki"),
     },
     {
       icon: <SiGithub size={18} />,
       label: "GitHub",
-      onClick: () => alert("GitHub!"),
+      onClick: () => redirectTo("https://github.com/darshan98Solanki/"),
     },
     {
       icon: <SiGmail size={18} />,
-      label: "GitHub",
-      onClick: () => alert("GitHub!"),
+      label: "Gmail",
+      onClick: () => redirectTo("https://mail.google.com/mail/?view=cm&fs=1&to=darshan98solanki@gmail.com"),
     },
   ];
 
