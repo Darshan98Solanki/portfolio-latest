@@ -230,7 +230,7 @@ export default function ExperienceTimeline() {
 
   return (
     <div className="min-h-auto bg-[#0a0a0a] p-4 md:p-8">
-      <div className="max-w-7xl w-full">
+      <div className="max-w-7xl w-full mx-auto relative">
         <div className="relative md:px-16">
           <button
             onClick={() => scroll("left")}
