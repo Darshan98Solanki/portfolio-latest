@@ -450,7 +450,7 @@ void main() {
   return (
     <div
       ref={containerRef}
-      className={`w-full h-full relative overflow-hidden ${className}`.trim()}
+      className={`w-full h-full relative overflow-hidden bg-[#0a0a0a] ${className}`.trim()}
     >
       {/* Canvas background layer */}
       <div

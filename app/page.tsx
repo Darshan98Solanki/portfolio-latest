@@ -113,7 +113,7 @@ const buildItems = [
 export default function Home() {
   return (
     <div>
-      <div style={{ width: "100%", height: "100%", position: "absolute" }}>
+      <div className="relative min-h-screen w-full bg-[#0a0a0a]">
         <LightRays
           raysOrigin="top-center"
           raysColor="#ffffff"
