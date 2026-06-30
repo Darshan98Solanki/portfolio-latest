@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState, type ReactNode } from "react";
+import { useEffect, useRef, type ReactNode } from "react";
 import Shuffle from "@/components/Shuffle";
 import { StackLoop } from "../logoLoop/StackLoop";
 
@@ -46,7 +46,7 @@ export function Stack(): ReactNode {
   const containerRef = useRef<HTMLDivElement | null>(null);
   const measureRef = useRef<HTMLDivElement | null>(null);
   const chipRefs = useRef<Array<HTMLDivElement | null>>([]);
-  const [resetKey, setResetKey] = useState(0);
+  const resetKey = 0;
 
   useEffect(() => {
     const container = containerRef.current;
