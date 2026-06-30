@@ -44,9 +44,6 @@ importers:
       react-icons:
         specifier: ^5.6.0
         version: 5.6.0(react@19.2.3)
-      three:
-        specifier: ^0.180.0
-        version: 0.180.0
     devDependencies:
       '@tailwindcss/postcss':
         specifier: ^4
@@ -2010,9 +2007,6 @@ packages:
   tapable@2.3.3:
     resolution: {integrity: sha512-uxc/zpqFg6x7C8vOE7lh6Lbda8eEL9zmVm/PLeTPBRhh1xCgdWaQ+J1CUieGpIfm2HdtsUpRv+HshiasBMcc6A==}
     engines: {node: '>=6'}
-
-  three@0.180.0:
-    resolution: {integrity: sha512-o+qycAMZrh+TsE01GqWUxUIKR1AL0S8pq7zDkYOQw8GqfX8b8VoCKYUoHbhiX5j+7hr8XsuHDVU6+gkQJQKg9w==}
 
   tinyglobby@0.2.16:
     resolution: {integrity: sha512-pn99VhoACYR8nFHhxqix+uvsbXineAasWm5ojXoN8xEwK5Kd3/TrhNn1wByuD52UxWRLy8pu+kRMniEi6Eq9Zg==}
@@ -4149,8 +4143,6 @@ snapshots:
   tailwindcss@4.2.4: {}
 
   tapable@2.3.3: {}
-
-  three@0.180.0: {}
 
   tinyglobby@0.2.16:
     dependencies:
