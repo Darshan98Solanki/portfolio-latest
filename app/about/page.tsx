@@ -1,0 +1,84 @@
+import { Education } from "@/components/about/education";
+import { Experience } from "@/components/about/experience";
+import { Skills } from "@/components/about/skills";
+import { Stack } from "@/components/about/stack";
+import ClickSpark from "@/components/ClickSpark";
+import { ContactCard } from "@/components/contact/contact-card";
+import { FadeIn } from "@/components/ui/motion-primitives";
+import { createMetadata } from "@/lib/metadata";
+import type { Metadata } from "next";
+import type { ReactNode } from "react";
+
+export const metadata: Metadata = createMetadata({
+  title: "About",
+  description: "About me, background, and how to get in touch.",
+  path: "/about",
+});
+
+export default function AboutPage(): ReactNode {
+  return (
+    <main id="main-content" className="flex flex-1 flex-col">
+      <ClickSpark
+        sparkColor="var(--foreground)"
+        sparkSize={10}
+        sparkRadius={15}
+        sparkCount={8}
+        duration={400}
+      >
+        <section className="mx-auto w-full max-w-160 px-6 pt-44 pb-16 sm:px-10 sm:pt-56 sm:pb-24">
+          <FadeIn delay={0.3}>
+            <div className="border-foreground/5 bg-foreground/1.5 dark:bg-foreground/3 rounded-4xl border p-8 sm:p-12">
+              <h1 className="text-foreground font-serif text-[1.75rem] font-medium tracking-tight sm:text-[2rem]">
+                Hello! I&rsquo;m{" "}
+                <span className="border-foreground/30 border-b pb-0.5">
+                  Darshan Solanki
+                </span>
+                .
+              </h1>
+
+              <div className="text-foreground/75 mt-8 space-y-6 text-[17px] leading-[1.7] tracking-tight sm:text-[18px]">
+                <p>
+                  I&rsquo;m a{" "}
+                  <strong className="text-foreground font-semibold">
+                    Full-Stack Engineer
+                  </strong>{" "}
+                  focused on building fast, scalable, and user-first web
+                  applications with{" "}
+                  <strong className="text-foreground font-semibold">
+                    React, Next.js, TypeScript, and Node.js
+                  </strong>
+                  .
+                </p>
+
+                <p>
+                  Over the last two years, I&rsquo;ve built production software,
+                  reusable systems, and AI-powered solutions that simplify
+                  complex problems and deliver measurable impact.
+                </p>
+
+                <p>
+                  I care about clean code, thoughtful design, and building
+                  products people genuinely enjoy using.
+                </p>
+              </div>
+            </div>
+          </FadeIn>
+        </section>
+
+        <section className="mx-auto w-full max-w-160 px-6 pb-20 sm:px-10 sm:pb-28">
+          <FadeIn delay={0.1}>
+            <div className="flex flex-col gap-10">
+              <Experience />
+              <Education />
+              <Skills />
+              <Stack />
+            </div>
+          </FadeIn>
+        </section>
+
+        <ContactCard />
+        <div className="h-12 sm:h-16" />
+      </ClickSpark>
+    </main>
+  );
+}
