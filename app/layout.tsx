@@ -4,12 +4,12 @@ import { Providers } from "@/components/layout/providers";
 import { SkipToContent } from "@/components/layout/skip-to-content";
 import { baseMetadata } from "@/lib/metadata";
 import type { Metadata, Viewport } from "next";
-import { Geist_Mono, Inter, Orbitron } from "next/font/google";
+import { Geist_Mono, Rubik, Space_Grotesk } from "next/font/google";
 import type { ReactNode } from "react";
 import "./globals.css";
 
-const inter = Inter({
-  variable: "--font-inter",
+const rubik = Rubik({
+  variable: "--font-rubik",
   subsets: ["latin"],
   display: "swap",
 });
@@ -20,8 +20,8 @@ const geistMono = Geist_Mono({
   display: "swap",
 });
 
-const orbitron = Orbitron({
-  variable: "--font-orbitron",
+const spaceGrotesk = Space_Grotesk({
+  variable: "--font-space-grotesk",
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
   display: "swap",
@@ -45,7 +45,7 @@ export default function RootLayout({
   children: ReactNode;
 }>): ReactNode {
   return (
-    <html lang="en" suppressHydrationWarning className={`${inter.variable} ${geistMono.variable} ${orbitron.variable}`}>
+    <html lang="en" suppressHydrationWarning className={`${rubik.variable} ${geistMono.variable} ${spaceGrotesk.variable}`}>
       <body
         className="min-h-screen bg-background font-sans text-foreground antialiased"
       >
