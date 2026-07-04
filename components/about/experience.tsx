@@ -128,25 +128,37 @@ export function Experience({
           style={{ overflow: "hidden" }}
         >
           <ul className="flex flex-col gap-2">
-            {ENTRIES.map((entry) => (
-              <li
-                key={`${entry.company}-${entry.period}`}
-                className="bg-background border-foreground/5 flex items-center gap-4 rounded-3xl border p-2"
-                style={{ minHeight: ROW_HEIGHT }}
-              >
-                <CompanyLogo entry={entry} />
-                <div className="flex min-w-0 flex-col">
-                  <span className="text-foreground text-[17px] font-semibold tracking-tight sm:text-[18px]">
-                    {entry.company}
-                  </span>
-                  <span className="text-foreground/65 mt-0.5 text-[14px] tracking-tight sm:text-[15px]">
-                    {entry.role}
-                    <span className="text-foreground/30 mx-2">•</span>
-                    <span className="text-foreground/55">{entry.period}</span>
-                  </span>
-                </div>
-              </li>
-            ))}
+            {ENTRIES.map((entry) => {
+              const isCurrent = entry.period.trim().endsWith("Present");
+              return (
+                <li
+                  key={`${entry.company}-${entry.period}`}
+                  className="bg-background border-foreground/5 flex items-center gap-4 rounded-3xl border p-2"
+                  style={{ minHeight: ROW_HEIGHT }}
+                >
+                  <CompanyLogo entry={entry} />
+                  <div className="flex min-w-0 flex-col">
+                    <span className="text-foreground flex items-center gap-2 text-[17px] font-semibold tracking-tight sm:text-[18px]">
+                      {entry.company}
+                      {isCurrent && (
+                        <span className="inline-flex items-center gap-1 rounded-full border border-emerald-500/25 bg-emerald-500/10 px-2 py-0.5 text-[10px] font-medium tracking-tight text-emerald-600 dark:text-emerald-400">
+                          <span className="relative flex h-1.5 w-1.5">
+                            <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-500 opacity-75" />
+                            <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-emerald-500" />
+                          </span>
+                          Current
+                        </span>
+                      )}
+                    </span>
+                    <span className="text-foreground/65 mt-0.5 text-[14px] tracking-tight sm:text-[15px]">
+                      {entry.role}
+                      <span className="text-foreground/30 mx-2">•</span>
+                      <span className="text-foreground/55">{entry.period}</span>
+                    </span>
+                  </div>
+                </li>
+              );
+            })}
           </ul>
         </motion.div>
 
