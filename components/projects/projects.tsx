@@ -48,7 +48,7 @@ const PROJECTS: Project[] = [
     description:
       "Built a responsive fintech experience that simplifies loan applications, approvals, and disbursals.",
     meta: "Frontend Developer - Freelance, 2025",
-    imageRatio: 1894 / 991,
+    imageRatio: 1264 / 843,
     image: "/images/borrowin.png",
     imageAlt: "Borrowin digital lending platform",
   },
@@ -62,7 +62,7 @@ const PROJECTS: Project[] = [
     description:
       "Built a Medium-inspired platform with secure authentication, content management, and Cloudflare Workers.",
     meta: "Full Stack Developer, 2024",
-    imageRatio: 1536 / 1024,
+    imageRatio: 1376 / 768,
     image: "/images/techlog.png",
     imageAlt: "TechLog publishing platform",
   },
@@ -76,7 +76,7 @@ const PROJECTS: Project[] = [
     description:
       "Built a system to scan NIFTY 500 stocks using technical indicators and automatically shortlist opportunities.",
     meta: "Data Analyst, 2023",
-    imageRatio: 1024 / 570,
+    imageRatio: 1376 / 768,
     image: "/images/stockmarket-screener.png",
     imageAlt: "Stock Market Screener",
   },
@@ -90,7 +90,7 @@ const PROJECTS: Project[] = [
     description:
       "Built a WebSocket-powered messaging system with low-latency communication and multiple chat rooms.",
     meta: "Full Stack Developer, 2024",
-    imageRatio: 1147 / 812,
+    imageRatio: 1376 / 768,
     image: "/images/chatdash.png",
     imageAlt: "Chat Dash real-time messaging platform",
   },
@@ -104,7 +104,7 @@ const PROJECTS: Project[] = [
     description:
       "Built a full-stack URL shortener with unique link generation, redirects, and a responsive interface.",
     meta: "Full Stack Developer, 2024",
-    imageRatio: 696 / 440,
+    imageRatio: 1376 / 768,
     image: "/images/short-url.png",
     imageAlt: "Short URI URL shortening platform",
   },
@@ -117,7 +117,7 @@ const PROJECTS: Project[] = [
     description:
       "Built a computer vision system using OpenCV and MediaPipe to detect gestures and control quiz interactions.",
     meta: "Computer Vision Project, 2023",
-    imageRatio: 710 / 623,
+    imageRatio: 1376 / 768,
     image: "/images/quiz-system.png",
     imageAlt: "Quiz Interactive System",
   },

@@ -3,14 +3,14 @@ import type { Metadata } from "next";
 export const siteConfig = {
   name: "Portfolio",
   description:
-    "A modern, accessible portfolio template built with Next.js, Tailwind CSS, and TypeScript.",
-  url: "https://example.com",
-  ogImage: "/og-image.png",
-  creator: "@yourhandle",
+    "A modern, accessible portfolio built with Next.js, Tailwind CSS, and TypeScript.",
+  url: "https://darshandev.online",
+  ogImage: "/me.jpeg",
+  creator: "@darshan98solanki",
   authors: [
     {
-      name: "Your Name",
-      url: "https://example.com",
+      name: "Darshan Solanki",
+      url: "https://darshandev.online",
     },
   ],
   keywords: [
