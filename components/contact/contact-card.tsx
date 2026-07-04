@@ -41,9 +41,9 @@ export function ContactCard(): ReactNode {
                   triggerOnHover={true}
                 />
                 <p className="text-foreground/65 mb-6 max-w-[29ch] text-[18px] leading-[1.4] tracking-tight sm:text-[22px]">
-                  I&rsquo;m always open to discussing new projects, creative
-                  ideas, or opportunities to be part of your visions. Just reach
-                  out!
+                  I build products, solve real problems, and take ownership
+                  from idea to execution. Have something worth building?
+                  Let&rsquo;s talk.
                 </p>
                 <ContactCardCtas />
               </div>

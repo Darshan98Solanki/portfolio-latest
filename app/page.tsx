@@ -5,6 +5,8 @@ import { createMetadata, siteConfig } from "@/lib/metadata";
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import ClickSpark from "@/components/ClickSpark";
+import { StackLoop } from "@/components/logoLoop/StackLoop";
+import { Experience } from "@/components/about/experience";
 
 export const metadata: Metadata = createMetadata({
   title: "Home",
@@ -23,8 +25,11 @@ export default function HomePage(): ReactNode {
         duration={400}
       >
         <Hero />
-        {/* <StackLoop /> */}
+        <StackLoop withHeading />
         <Projects withHeadline viewMoreVisible />
+        <div className="mx-auto w-full max-w-275 px-6 sm:px-10">
+          <Experience withHeadline/>
+        </div>
         <ContactCard />
         <div className="h-12 sm:h-16" />
       </ClickSpark>

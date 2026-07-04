@@ -4,6 +4,7 @@ import { ChevronDown } from "lucide-react";
 import { AnimatePresence, motion } from "motion/react";
 import Image from "next/image";
 import { useState, type ReactNode } from "react";
+import { FadeIn } from "@/components/ui/motion-primitives";
 import Shuffle from "../Shuffle";
 
 type Entry = {
@@ -62,7 +63,13 @@ const COLLAPSED_COUNT = 2.5;
 const ROW_HEIGHT = 64;
 const ROW_GAP = 8;
 
-export function Experience(): ReactNode {
+export type ExperienceProps = {
+  withHeadline?: boolean;
+};
+
+export function Experience({
+  withHeadline = false,
+}: ExperienceProps): ReactNode {
   const [open, setOpen] = useState(false);
   const collapsedHeight =
     Math.floor(COLLAPSED_COUNT) * ROW_HEIGHT +
@@ -72,7 +79,28 @@ export function Experience(): ReactNode {
 
   return (
     <div className="flex flex-col gap-3">
-      <Shuffle
+      {withHeadline ? (
+        <FadeIn className="flex flex-col items-center gap-5 pt-12 pb-10 text-center sm:pt-20 sm:pb-14">
+          <Shuffle
+            text="Experience"
+            tag="h2"
+            className="text-foreground font-serif text-[2.5rem] leading-[1.05] font-medium tracking-tight md:text-[3rem] lg:text-[3.5rem]"
+            shuffleDirection="right"
+            textAlign="center"
+            animationMode="evenodd"
+            stagger={0.025}
+            duration={0.4}
+            triggerOnce
+            triggerOnHover={true}
+            threshold={0}
+          />
+          <p className="text-foreground/65 max-w-[33ch] text-[18px] leading-[1.45] tracking-tight sm:text-[20px]">
+            Roles and projects that shaped how I build, ship, and think about
+            software.
+          </p>
+        </FadeIn>
+      ) : (
+        <Shuffle
           text="Experience"
           tag="h3"
           className="font-serif text-[1.125rem] font-semibold tracking-tight text-foreground sm:text-[1.25rem]"
@@ -83,7 +111,8 @@ export function Experience(): ReactNode {
           duration={0.35}
           triggerOnce
           triggerOnHover
-        />  
+        />
+      )}
       <div
         className={`border-foreground/5 bg-foreground/2 dark:bg-foreground/5 relative overflow-hidden rounded-4xl border px-2 pt-2 sm:px-4 sm:pt-4 ${
           open ? "pb-2 sm:pb-4" : "pb-0"

@@ -37,6 +37,8 @@ import {
 } from "react-icons/si";
 import { FaNode } from "react-icons/fa";
 import { LogoLoop, type LogoItem } from "./LogoLoop";
+import { FadeIn } from "@/components/ui/motion-primitives";
+import Shuffle from "@/components/Shuffle";
 
 const techLogos = [
   { node: <SiNextdotjs />, title: "Next.js", href: "https://nextjs.org" },
@@ -177,7 +179,11 @@ function LogoTooltip({ item }: { item: LogoItem }) {
   );
 }
 
-export function StackLoop(): ReactNode {
+export type StackLoopProps = {
+  withHeading?: boolean;
+};
+
+export function StackLoop({ withHeading = false }: StackLoopProps): ReactNode {
   const [isScrolling, setIsScrolling] = useState(false);
   const scrollTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
@@ -202,7 +208,29 @@ export function StackLoop(): ReactNode {
 
   return (
     <section className="relative w-full">
-      <div className="mx-auto w-full px-6 sm:px-10">
+      <div className="mx-auto w-full max-w-275 px-6 sm:px-10">
+        {withHeading ? (
+          <FadeIn className="flex flex-col items-center gap-5 pt-12 pb-10 text-center sm:pt-20 sm:pb-14">
+            <Shuffle
+              text="My stack"
+              tag="h2"
+              className="text-foreground font-serif text-[2.5rem] leading-[1.05] font-medium tracking-tight md:text-[3rem] lg:text-[3.5rem]"
+              shuffleDirection="right"
+              textAlign="center"
+              animationMode="evenodd"
+              stagger={0.025}
+              duration={0.4}
+              triggerOnce
+              triggerOnHover={true}
+              threshold={0}
+            />
+            <p className="text-foreground/65 max-w-[33ch] text-[18px] leading-[1.45] tracking-tight sm:text-[20px]">
+              The languages, frameworks, and tools I reach for to build and
+              ship products.
+            </p>
+          </FadeIn>
+        ) : null}
+
         <div
           style={{
             height: "200px",

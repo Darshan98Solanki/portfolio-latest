@@ -1,6 +1,6 @@
 'use client';
 
-import { Github, Linkedin, Twitter } from 'lucide-react';
+import { FileText, Github, Linkedin, Twitter } from 'lucide-react';
 import Dock from '@/components/Dock';
 
 const items = [
@@ -18,6 +18,11 @@ const items = [
     icon: <Github size={18} />,
     label: 'GitHub',
     onClick: () => window.open('https://github.com/Darshan98Solanki', '_blank'),
+  },
+  {
+    icon: <FileText size={18} />,
+    label: 'Resume',
+    onClick: () => window.open('https://drive.google.com/file/d/1uhXmKhtBWysBVjJtPcr5UvSqhnIb1gQ6/view?usp=sharing', '_blank'),
   },
 ];
 

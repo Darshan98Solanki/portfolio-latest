@@ -44,14 +44,13 @@ const PROJECTS: Project[] = [
     icon: DollarSign,
     iconLabel: "Borrowin",
     liveUrl: "https://borrowin.in",
-    title:
-      "A digital lending platform built to deliver instant loan approvals through a fast, secure, and fully online borrowing experience.",
+    title: "A digital lending platform for fast, fully online loan approvals.",
     description:
-      "Developed Borrowin, a modern fintech platform that streamlines loan applications, approvals, and disbursals with a transparent digital workflow, minimal documentation, and a responsive user experience.",
-    meta: "Frontend Developer - freelance, 2025",
-    imageRatio: 1024 / 768,
+      "Built a responsive fintech experience that simplifies loan applications, approvals, and disbursals.",
+    meta: "Frontend Developer - Freelance, 2025",
+    imageRatio: 1894 / 991,
     image: "/images/borrowin.png",
-    imageAlt: "Loom AI writing companion mockup",
+    imageAlt: "Borrowin digital lending platform",
   },
   {
     id: "techlog",
@@ -59,26 +58,26 @@ const PROJECTS: Project[] = [
     iconLabel: "TechLog",
     liveUrl: "https://medium-ecru-six.vercel.app",
     githubUrl: "https://github.com/Darshan98Solanki/medium",
-      title:
-    "A full-stack publishing platform for writing, sharing, and managing articles with a fast, distraction-free reading experience.",
+    title: "A fast, distraction-free platform for publishing and discovering articles.",
     description:
-    "Built a Medium-inspired platform with secure authentication, modular architecture, and Cloudflare Workers, enabling users to publish, discover, and manage content with low-latency performance.",
+      "Built a Medium-inspired platform with secure authentication, content management, and Cloudflare Workers.",
     meta: "Full Stack Developer, 2024",
-    imageRatio: 1024 / 768,
-    image:"/images/techlog.png",
+    imageRatio: 1536 / 1024,
+    image: "/images/techlog.png",
     imageAlt: "TechLog publishing platform",
   },
   {
     id: "stockmarket",
     icon: LineChart,
     iconLabel: "Stock Market Screener",
-    liveUrl: "https://www.linkedin.com/posts/solanki-darshan_stock-screener-in-this-project-for-the-activity-7114860234757537792-w9Uf?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEIiMDABGjG1tCHcap6YFXgbX4QNbebYqbQ",
-    title: "A stock screening platform built to simplify market research through powerful filtering and analysis.",
-    description: "Developed a responsive stock screener that helps investors discover and compare companies using key financial metrics, making market research faster and more accessible.",
+    liveUrl:
+      "https://www.linkedin.com/posts/solanki-darshan_stock-screener-in-this-project-for-the-activity-7114860234757537792-w9Uf?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEIiMDABGjG1tCHcap6YFXgbX4QNbebYqbQ",
+    title: "A Python-based screener for finding stocks that match defined strategies.",
+    description:
+      "Built a system to scan NIFTY 500 stocks using technical indicators and automatically shortlist opportunities.",
     meta: "Data Analyst, 2023",
-    imageRatio: 1024 / 768,
-    image:
-      "/images/stockmarket-screener.png",
+    imageRatio: 1024 / 570,
+    image: "/images/stockmarket-screener.png",
     imageAlt: "Stock Market Screener",
   },
   {
@@ -87,11 +86,12 @@ const PROJECTS: Project[] = [
     iconLabel: "Chat Dash",
     liveUrl: "https://chat-dash-1.onrender.com",
     githubUrl: "https://github.com/Darshan98Solanki/chat-dash",
-    title:"A real-time messaging platform built for seamless conversations across multiple chat rooms.",
-    description:"Developed a full-stack chat application powered by WebSockets, enabling low-latency messaging, multiple chat rooms, and a responsive interface designed for smooth real-time communication.",
+    title: "A real-time chat platform for fast, room-based conversations.",
+    description:
+      "Built a WebSocket-powered messaging system with low-latency communication and multiple chat rooms.",
     meta: "Full Stack Developer, 2024",
-    imageRatio: 1024 / 768,
-    image:"/images/chatdash.png",
+    imageRatio: 1147 / 812,
+    image: "/images/chatdash.png",
     imageAlt: "Chat Dash real-time messaging platform",
   },
   {
@@ -100,14 +100,12 @@ const PROJECTS: Project[] = [
     iconLabel: "Short URI",
     liveUrl: "https://short-uri-q5yh.vercel.app",
     githubUrl: "https://github.com/Darshan98Solanki/short-uri",
-    title:
-      "A URL shortening platform built to create, manage, and share clean links with ease.",
+    title: "A simple platform for turning long URLs into clean, shareable links.",
     description:
-      "Developed a full-stack URL shortener that generates unique short links, tracks redirects, and provides a fast, responsive experience for sharing links efficiently.",
+      "Built a full-stack URL shortener with unique link generation, redirects, and a responsive interface.",
     meta: "Full Stack Developer, 2024",
-    imageRatio: 1024 / 768,
-    image:
-      "/images/short-url.png",
+    imageRatio: 696 / 440,
+    image: "/images/short-url.png",
     imageAlt: "Short URI URL shortening platform",
   },
   {
@@ -115,12 +113,12 @@ const PROJECTS: Project[] = [
     icon: Eye,
     iconLabel: "Quiz System",
     githubUrl: "https://github.com/Darshan98Solanki/Quiz-System-OpenCV",
-    title: "An interactive quiz platform powered by computer vision and real-time hand gesture recognition.",
-    description: "Built a gesture-controlled quiz system using OpenCV, MediaPipe, and TensorFlow, enabling users to navigate quizzes hands-free while receiving instant feedback and storing results for performance analysis.",
+    title: "A hands-free quiz system controlled through real-time hand gestures.",
+    description:
+      "Built a computer vision system using OpenCV and MediaPipe to detect gestures and control quiz interactions.",
     meta: "Computer Vision Project, 2023",
-    imageRatio: 1024 / 768,
-    image:
-      "/images/quiz-system.png",
+    imageRatio: 710 / 623,
+    image: "/images/quiz-system.png",
     imageAlt: "Quiz Interactive System",
   },
 ];
@@ -134,7 +132,7 @@ export function Projects({
   withHeadline = false,
   viewMoreVisible = false,
 }: ProjectsProps): ReactNode {
-  const items = viewMoreVisible ? PROJECTS.slice(0, 4) : PROJECTS;
+  const items = viewMoreVisible ? PROJECTS.slice(0, 2) : PROJECTS;
 
   return (
     <section className="relative w-full">
@@ -246,6 +244,7 @@ function ProjectCard({
               fill
               sizes="(min-width: 1024px) 540px, (min-width: 768px) 45vw, 100vw"
               className="object-cover"
+              quality={95}
               priority={index < 2}
             />
           </div>
