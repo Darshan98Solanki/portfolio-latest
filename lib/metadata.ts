@@ -13,12 +13,15 @@ export const siteConfig = {
     },
   ],
   keywords: [
-    "portfolio",
-    "personal site",
+    "Darshan Solanki",
+    "Full Stack Developer",
+    "Freelancer",
     "Next.js",
     "React",
-    "Tailwind CSS",
+    "Nest.js",
     "TypeScript",
+    "Node.js",
+    "Portfolio",
   ],
 } as const;
 
