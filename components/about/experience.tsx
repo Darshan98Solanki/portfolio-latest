@@ -17,7 +17,7 @@ type Entry = {
 
 const ENTRIES: Entry[] = [
    {
-    company: "Micro 1 (Contract/Freelance)",
+    company: "Micro 1-Freelance",
     role: "Associate Software Engineer",
     period: "Mar 2025 – Present",
     slug: "micro-1.png",
@@ -138,10 +138,10 @@ export function Experience({
                 >
                   <CompanyLogo entry={entry} />
                   <div className="flex min-w-0 flex-col">
-                    <span className="text-foreground flex items-center gap-2 text-[17px] font-semibold tracking-tight sm:text-[18px]">
-                      {entry.company}
+                    <span className="text-foreground flex min-w-0 items-center gap-2 text-[17px] font-semibold tracking-tight sm:text-[18px]">
+                      <span className="truncate">{entry.company}</span>
                       {isCurrent && (
-                        <span className="inline-flex items-center gap-1 rounded-full border border-emerald-500/25 bg-emerald-500/10 px-2 py-0.5 text-[10px] font-medium tracking-tight text-emerald-600 dark:text-emerald-400">
+                        <span className="inline-flex shrink-0 items-center gap-1 rounded-full border border-emerald-500/25 bg-emerald-500/10 px-2 py-0.5 text-[10px] font-medium tracking-tight text-emerald-600 dark:text-emerald-400">
                           <span className="relative flex h-1.5 w-1.5">
                             <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-500 opacity-75" />
                             <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-emerald-500" />
