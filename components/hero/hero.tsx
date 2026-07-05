@@ -1,4 +1,6 @@
-import type { ReactNode } from "react";
+"use client";
+
+import { type ReactNode } from "react";
 
 import { HeroCtas } from "./hero-ctas";
 import { FadeIn, ScaleUnblur } from "@/components/ui/motion-primitives";

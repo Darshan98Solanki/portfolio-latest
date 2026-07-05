@@ -1,6 +1,7 @@
 import { Nav } from "@/components/layout/nav";
 import { PageBackdrop } from "@/components/layout/page-backdrop";
 import { Providers } from "@/components/layout/providers";
+import { ScrollToTop } from "@/components/layout/scroll-to-top";
 import { SkipToContent } from "@/components/layout/skip-to-content";
 import { baseMetadata } from "@/lib/metadata";
 import type { Metadata, Viewport } from "next";
@@ -63,6 +64,7 @@ export default function RootLayout({
           <PageBackdrop />
           <Nav />
           {children}
+          <ScrollToTop />
         </Providers>
       </body>
     </html>

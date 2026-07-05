@@ -14,6 +14,31 @@ const LENIS_OPTIONS = {
   touchMultiplier: 2,
 };
 
+let activeLenis: Lenis | null = null;
+
+export function scrollToTarget(
+  target: HTMLElement | string | number,
+  options?: { offset?: number }
+): void {
+  if (activeLenis) {
+    activeLenis.scrollTo(target, options);
+    return;
+  }
+
+  const top =
+    typeof target === "number"
+      ? target
+      : (typeof target === "string"
+          ? document.querySelector(target)
+          : target
+        )?.getBoundingClientRect().top ?? 0;
+
+  window.scrollTo({
+    top: window.scrollY + top + (options?.offset ?? 0),
+    behavior: "smooth",
+  });
+}
+
 export function SmoothScroll({
   children,
 }: {
@@ -29,6 +54,7 @@ export function SmoothScroll({
     if (prefersReducedMotion) return;
 
     const lenis = new Lenis(LENIS_OPTIONS);
+    activeLenis = lenis;
 
     function raf(time: number): void {
       lenis.raf(time);
@@ -58,6 +84,7 @@ export function SmoothScroll({
       document.removeEventListener("click", handleAnchorClick);
       cancelAnimationFrame(rafId);
       lenis.destroy();
+      activeLenis = null;
     };
   }, []);
 
