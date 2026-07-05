@@ -28,6 +28,8 @@ export type DockProps = {
   dockHeight?: number;
   magnification?: number;
   spring?: SpringOptions;
+  itemGap?: number;
+  panelPaddingX?: number;
 };
 
 type DockItemProps = {
@@ -156,7 +158,9 @@ export default function Dock({
   distance = 200,
   panelHeight = 64,
   dockHeight = 256,
-  baseItemSize = 50
+  baseItemSize = 50,
+  itemGap = 16,
+  panelPaddingX = 16
 }: DockProps) {
   const mouseX = useMotionValue(Infinity);
   const isHovered = useMotionValue(0);
@@ -182,7 +186,10 @@ export default function Dock({
         aria-label="Application dock"
       >
         <BorderGlow className="h-full w-full" borderRadius={16} backgroundColor="var(--background)">
-          <div className="flex items-end gap-4 pb-2 px-4 h-full overflow-visible">
+          <div
+            className="flex items-end pb-2 h-full overflow-visible"
+            style={{ gap: itemGap, paddingLeft: panelPaddingX, paddingRight: panelPaddingX }}
+          >
             {items.map((item, index) => (
               <DockItem
                 key={index}

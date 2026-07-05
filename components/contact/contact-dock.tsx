@@ -1,6 +1,7 @@
 'use client';
 
 import { FileText, Github, Linkedin, Twitter } from 'lucide-react';
+import { useEffect, useState } from 'react';
 import Dock from '@/components/Dock';
 
 const items = [
@@ -27,13 +28,25 @@ const items = [
 ];
 
 export function ContactDock() {
+  const [isCompact, setIsCompact] = useState(false);
+
+  useEffect(() => {
+    const mql = window.matchMedia('(max-width: 639px)');
+    const update = () => setIsCompact(mql.matches);
+    update();
+    mql.addEventListener('change', update);
+    return () => mql.removeEventListener('change', update);
+  }, []);
+
   return (
     <Dock
       items={items}
-      panelHeight={62}
-      baseItemSize={44}
-      magnification={52}
-      dockHeight={120}
+      panelHeight={isCompact ? 52 : 62}
+      baseItemSize={isCompact ? 36 : 44}
+      magnification={isCompact ? 44 : 52}
+      dockHeight={isCompact ? 100 : 120}
+      itemGap={isCompact ? 8 : 16}
+      panelPaddingX={isCompact ? 8 : 16}
     />
   );
 }

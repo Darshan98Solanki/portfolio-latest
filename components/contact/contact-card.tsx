@@ -48,7 +48,7 @@ export function ContactCard(): ReactNode {
                 <ContactCardCtas />
               </div>
 
-              <div className="border-foreground/8 bg-background flex flex-col items-center justify-center gap-4 rounded-[1.1rem] border p-6 sm:p-8">
+              <div className="border-foreground/8 bg-background flex min-w-0 flex-col items-center justify-center gap-4 overflow-hidden rounded-[1.1rem] border p-4 sm:overflow-visible sm:p-8">
                 {/* <div className="flex flex-col items-center gap-1 text-center">
                   <p className="text-foreground/70 text-[13px] tracking-tight">
                     2026 &copy; Built with Next.js
