@@ -1,3 +1,4 @@
+import CircularGallery from "@/components/about/CircularGallery";
 import { Education } from "@/components/about/education";
 import { Experience } from "@/components/about/experience";
 import { Skills } from "@/components/about/skills";
@@ -5,6 +6,7 @@ import { Stack } from "@/components/about/stack";
 import ClickSpark from "@/components/ClickSpark";
 import { ContactCard } from "@/components/contact/contact-card";
 import { FadeIn } from "@/components/ui/motion-primitives";
+import { getGalleryItems } from "@/lib/gallery";
 import { createMetadata } from "@/lib/metadata";
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
@@ -16,6 +18,8 @@ export const metadata: Metadata = createMetadata({
 });
 
 export default function AboutPage(): ReactNode {
+  const galleryItems = getGalleryItems();
+
   return (
     <main id="main-content" className="flex flex-1 flex-col">
       <ClickSpark
@@ -72,6 +76,19 @@ export default function AboutPage(): ReactNode {
               <Education />
               <Skills />
               <Stack />
+              <div className="relative h-48 overflow-hidden sm:h-56 md:h-64">
+                <CircularGallery
+                  title="Captured Moments"
+                  items={galleryItems}
+                  bend={2}
+                  textColor="#ffffff"
+                  borderRadius={0.05}
+                  scrollEase={0.07}
+                  fontUrl=""
+                  font="bold 46px Orbitron"
+                  scrollSpeed={3}
+                />
+              </div>
             </div>
           </FadeIn>
         </section>
