@@ -81,7 +81,6 @@ export default function AboutPage(): ReactNode {
                   title="Captured Moments"
                   items={galleryItems}
                   bend={2}
-                  textColor="#ffffff"
                   borderRadius={0.05}
                   scrollEase={0.07}
                   fontUrl=""

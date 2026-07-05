@@ -1,6 +1,7 @@
 "use client";
 
 import { Camera, Mesh, Plane, Program, Renderer, Texture, Transform } from 'ogl';
+import { useTheme } from 'next-themes';
 import { useEffect, useRef } from 'react';
 
 import Shuffle from '@/components/Shuffle';
@@ -794,13 +795,15 @@ export default function CircularGallery({
   title,
   items,
   bend = 3,
-  textColor = '#ffffff',
+  textColor,
   borderRadius = 0.05,
   font = 'bold 46px Figtree',
   fontUrl,
   scrollSpeed = 2,
   scrollEase = 0.05
 }: CircularGalleryProps) {
+  const { resolvedTheme } = useTheme();
+  const resolvedTextColor = textColor ?? (resolvedTheme === 'light' ? '#0a0a0a' : '#fafafa');
   const containerRef = useRef<HTMLDivElement>(null);
   useEffect(() => {
     if (!containerRef.current) return;
@@ -811,7 +814,7 @@ export default function CircularGallery({
       app = new App(containerRef.current, {
         items,
         bend,
-        textColor,
+        textColor: resolvedTextColor,
         borderRadius,
         font: resolvedFont,
         scrollSpeed,
@@ -822,7 +825,7 @@ export default function CircularGallery({
       isMounted = false;
       if (app) app.destroy();
     };
-  }, [items, bend, textColor, borderRadius, font, fontUrl, scrollSpeed, scrollEase]);
+  }, [items, bend, resolvedTextColor, borderRadius, font, fontUrl, scrollSpeed, scrollEase]);
   return (
     <div className="flex h-full flex-col gap-3">
       {title && (
