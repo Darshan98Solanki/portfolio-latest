@@ -235,7 +235,7 @@ function CarouselCard({
             rel="noreferrer noopener"
             className="liquid-glass flex items-center gap-2 rounded-full border border-white/20 px-4 py-2.5 text-xs font-medium text-white transition-all duration-200 hover:border-white/40 hover:bg-white/10 hover:shadow-[0_0_16px_rgba(255,255,255,0.15)]"
           >
-            Open in Spotify
+            Explore Playlist
             <ExternalLink className="h-3.5 w-3.5" aria-hidden="true" />
           </a>
         </motion.div>
