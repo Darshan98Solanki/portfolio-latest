@@ -22,6 +22,7 @@ import {
 } from "react";
 
 import ElasticSlider from "./ElasticSlider";
+import Shuffle from "@/components/Shuffle";
 
 const instrumentSerif = Instrument_Serif({
   subsets: ["latin"],
@@ -307,20 +308,34 @@ export function HeroCarousel(): ReactNode {
   if (!activeCard) return null;
 
   return (
-    <section className="relative w-full">
-      <div className="relative isolate flex min-h-[85vh] flex-col overflow-hidden rounded-3xl border border-white/10 bg-black">
-        <AnimatePresence mode="wait">
-          <CarouselCard
-            key={activeCard.id}
-            id={activeCard.id}
-            video={activeCard.video}
-            trackTitle={activeCard.trackTitle}
-            trackArtist={activeCard.trackArtist}
-            isPlaying={isPlaying}
-            onTogglePlay={togglePlay}
-            onVideoReady={handleVideoReady}
-          />
-        </AnimatePresence>
+    <div className="flex flex-col gap-3">
+      <Shuffle
+        text="Music DNA"
+        tag="h3"
+        className="font-serif text-[1.125rem] font-semibold tracking-tight text-foreground sm:text-[1.25rem]"
+        shuffleDirection="right"
+        textAlign="left"
+        animationMode="evenodd"
+        stagger={0.03}
+        duration={0.35}
+        triggerOnce
+        triggerOnHover
+      />
+
+      <section className="relative w-full">
+        <div className="relative isolate flex min-h-[70vh] flex-col overflow-hidden rounded-3xl border border-white/10 bg-black">
+          <AnimatePresence mode="wait">
+            <CarouselCard
+              key={activeCard.id}
+              id={activeCard.id}
+              video={activeCard.video}
+              trackTitle={activeCard.trackTitle}
+              trackArtist={activeCard.trackArtist}
+              isPlaying={isPlaying}
+              onTogglePlay={togglePlay}
+              onVideoReady={handleVideoReady}
+            />
+          </AnimatePresence>
 
         <audio
           ref={audioRef}
@@ -379,7 +394,8 @@ export function HeroCarousel(): ReactNode {
             />
           </div>
         </div>
-      </div>
-    </section>
+        </div>
+      </section>
+    </div>
   );
 }
