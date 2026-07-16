@@ -3,6 +3,7 @@ import { Education } from "@/components/about/education";
 import { Experience } from "@/components/about/experience";
 import { Skills } from "@/components/about/skills";
 import { Stack } from "@/components/about/stack";
+import { HeroCarousel } from "@/components/about/hero-carousel";
 import ClickSpark from "@/components/ClickSpark";
 import { ContactCard } from "@/components/contact/contact-card";
 import { FadeIn } from "@/components/ui/motion-primitives";
@@ -88,6 +89,7 @@ export default function AboutPage(): ReactNode {
                   scrollSpeed={3}
                 />
               </div>
+              <HeroCarousel />
             </div>
           </FadeIn>
         </section>
