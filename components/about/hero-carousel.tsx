@@ -173,7 +173,7 @@ function CarouselCard({
       />
       <div className="absolute inset-0 bg-gradient-to-b from-black/35 via-black/10 to-black/45" />
 
-      <div className="relative z-10 flex flex-1 flex-col items-center justify-center gap-6 px-6 text-center">
+      <div className="relative z-10 flex flex-1 flex-col items-center justify-center gap-6 px-6 pb-8 text-center sm:pb-24">
         <motion.div
           initial={{ opacity: 0, scale: 0.85 }}
           animate={{ opacity: 1, scale: 1 }}
