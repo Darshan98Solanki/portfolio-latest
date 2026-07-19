@@ -227,6 +227,15 @@ class Title {
     this.mesh.position.y = -this.plane.scale.y * 0.5 - textHeightScaled * 0.3 - 0.02;
     this.mesh.setParent(this.plane);
   }
+
+  // Redraws just the text texture in place (font/text metrics are unchanged,
+  // so mesh scale stays valid) instead of tearing down the whole gallery,
+  // which is what a theme toggle needs.
+  updateColor(color: string) {
+    this.textColor = color;
+    const { texture } = createTextTexture(this.gl, this.text, this.font, color);
+    this.mesh.program.uniforms.tMap.value = texture;
+  }
 }
 
 interface ScreenSize {
@@ -487,6 +496,7 @@ interface AppConfig {
 class App {
   container: HTMLElement;
   scrollSpeed: number;
+  textColor: string;
   scroll: {
     ease: number;
     current: number;
@@ -532,6 +542,7 @@ class App {
     document.documentElement.classList.remove('no-js');
     this.container = container;
     this.scrollSpeed = scrollSpeed;
+    this.textColor = textColor;
     this.scroll = { ease: scrollEase, current: 0, target: 0, last: 0 };
     this.onCheckDebounce = debounce(this.onCheck.bind(this), 200);
     this.createRenderer();
@@ -695,6 +706,13 @@ class App {
     }
   }
 
+  // Recolors every title in place instead of destroying and rebuilding the
+  // whole WebGL app (renderer, images, textures) just for a theme toggle.
+  updateTextColor(color: string) {
+    this.textColor = color;
+    this.medias.forEach(media => media.title.updateColor(color));
+  }
+
   onCheck() {
     if (!this.medias || !this.medias[0]) return;
     const width = this.medias[0].width;
@@ -805,6 +823,15 @@ export default function CircularGallery({
   const { resolvedTheme } = useTheme();
   const resolvedTextColor = textColor ?? (resolvedTheme === 'light' ? '#0a0a0a' : '#fafafa');
   const containerRef = useRef<HTMLDivElement>(null);
+  const appRef = useRef<App | null>(null);
+  // Kept up to date after every commit so the mount effect below can read the
+  // latest color without depending on it (a theme toggle must not tear down
+  // and rebuild the whole WebGL gallery — see the recolor effect further down).
+  const resolvedTextColorRef = useRef(resolvedTextColor);
+  useEffect(() => {
+    resolvedTextColorRef.current = resolvedTextColor;
+  });
+
   useEffect(() => {
     if (!containerRef.current) return;
     let app: App | undefined;
@@ -814,18 +841,24 @@ export default function CircularGallery({
       app = new App(containerRef.current, {
         items,
         bend,
-        textColor: resolvedTextColor,
+        textColor: resolvedTextColorRef.current,
         borderRadius,
         font: resolvedFont,
         scrollSpeed,
         scrollEase
       });
+      appRef.current = app;
     });
     return () => {
       isMounted = false;
+      appRef.current = null;
       if (app) app.destroy();
     };
-  }, [items, bend, resolvedTextColor, borderRadius, font, fontUrl, scrollSpeed, scrollEase]);
+  }, [items, bend, borderRadius, font, fontUrl, scrollSpeed, scrollEase]);
+
+  useEffect(() => {
+    appRef.current?.updateTextColor(resolvedTextColor);
+  }, [resolvedTextColor]);
   return (
     <div className="flex h-full flex-col gap-3">
       {title && (
