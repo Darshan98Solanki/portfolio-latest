@@ -19,7 +19,7 @@ const ENTRIES: Entry[] = [
    {
     company: "Micro 1-Freelance",
     role: "Associate Software Engineer",
-    period: "Mar 2025 – Present",
+    period: "Mar 2026 – Present",
     slug: "micro-1.png",
     brand: "#111111",
   },
