@@ -7,6 +7,7 @@ import type { ReactNode } from "react";
 import ClickSpark from "@/components/ClickSpark";
 import { StackLoop } from "@/components/logoLoop/StackLoop";
 import { Experience } from "@/components/about/experience";
+import { Reveal } from "@/components/FadeContent";
 
 export const metadata: Metadata = createMetadata({
   title: "Home",
@@ -24,13 +25,13 @@ export default function HomePage(): ReactNode {
         sparkCount={8}
         duration={400}
       >
-        <Hero />
-        <StackLoop withHeading />
-        <Projects withHeadline viewMoreVisible />
-        <div className="mx-auto w-full max-w-275 px-6 sm:px-10">
+        <Reveal><Hero /></Reveal>
+        <Reveal><StackLoop withHeading /></Reveal>
+        <Reveal><Projects withHeadline viewMoreVisible /></Reveal>
+        <Reveal className="mx-auto w-full max-w-275 px-6 sm:px-10">
           <Experience withHeadline/>
-        </div>
-        <ContactCard />
+        </Reveal>
+        <Reveal><ContactCard /></Reveal>
         <div className="h-12 sm:h-16" />
       </ClickSpark>
     </main>

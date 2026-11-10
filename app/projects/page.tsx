@@ -1,6 +1,6 @@
 import { ContactCard } from "@/components/contact/contact-card";
 import { Projects } from "@/components/projects/projects";
-import { FadeIn } from "@/components/ui/motion-primitives";
+import { Reveal } from "@/components/FadeContent";
 import Shuffle from "@/components/Shuffle";
 import { createMetadata } from "@/lib/metadata";
 import type { Metadata } from "next";
@@ -24,7 +24,7 @@ export default function ProjectsPage(): ReactNode {
         duration={400}
       >
         <section className="mx-auto w-full max-w-275 px-6 pt-44 pb-16 sm:px-10 sm:pt-60 sm:pb-20">
-          <FadeIn className="flex flex-col items-center gap-5 text-center">
+          <Reveal className="flex flex-col items-center gap-5 text-center">
             <Shuffle
               text="My recent work"
               tag="h1"
@@ -41,10 +41,10 @@ export default function ProjectsPage(): ReactNode {
               Experiments, collaborations, and projects I&rsquo;m especially
               proud to have shipped.
             </p>
-          </FadeIn>
+          </Reveal>
         </section>
-        <Projects />
-        <ContactCard />
+        <Reveal><Projects /></Reveal>
+        <Reveal><ContactCard /></Reveal>
         <div className="h-12 sm:h-16" />
       </ClickSpark>
     </main>

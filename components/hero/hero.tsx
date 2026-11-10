@@ -1,16 +1,40 @@
 "use client";
 
-import { type ReactNode } from "react";
+import { type ReactNode, useEffect, useRef, useState } from "react";
 
 import { HeroCtas } from "./hero-ctas";
 import { FadeIn, ScaleUnblur } from "@/components/ui/motion-primitives";
 import { PortraitMorph } from "./portrait-morph";
-import Shuffle from "@/components/Shuffle";
+import TechText from "./TechText";
 
 const PORTRAIT_SRC = "/me.jpeg";
 const PORTRAIT_HOVER_SRC = "/want-to-be.png";
+const LINES = ["Full stack developer &", "Freelancer"];
 
 export function Hero(): ReactNode {
+  const titleRef = useRef<HTMLHeadingElement>(null);
+  const [fontSize, setFontSize] = useState(48);
+
+  // One size for both lines: the CSS font-size, shrunk if the longest line would overflow the column.
+  useEffect(() => {
+    const h1 = titleRef.current;
+    if (!h1) return;
+    const ctx = document.createElement("canvas").getContext("2d");
+    const update = () => {
+      const { fontSize: css, fontFamily } = getComputedStyle(h1);
+      const px = parseFloat(css);
+      if (!ctx) return setFontSize(px);
+      ctx.font = `500 ${px}px ${fontFamily}`;
+      const widest = Math.max(...LINES.map((l) => ctx.measureText(l).width));
+      setFontSize(px * Math.min(1, h1.clientWidth / widest));
+    };
+    update();
+    document.fonts?.ready.then(update);
+    const ro = new ResizeObserver(update);
+    ro.observe(h1);
+    return () => ro.disconnect();
+  }, []);
+
   return (
     <section className="relative w-full">
       <div className="mx-auto w-full max-w-275 px-6 pt-32 pb-24 sm:px-10 sm:pt-56 sm:pb-32">
@@ -24,33 +48,41 @@ export function Hero(): ReactNode {
               , I&rsquo;m Darshan
             </p>
 
-            <h1 className="flex flex-col items-start">
-              <Shuffle
-                text="Full stack developer &"
-                tag="span"
-                className="font-serif text-[1.8rem] font-medium leading-[1.05] tracking-tight text-foreground md:text-[2.5rem] lg:text-[3rem]"
-                style={{ whiteSpace: "nowrap" }}
-                shuffleDirection="right"
-                textAlign="left"
-                animationMode="evenodd"
-                stagger={0.02}
-                duration={0.4}
-                triggerOnce
-                triggerOnHover={false}
-              />
-              <Shuffle
-                text="Freelancer"
-                tag="span"
-                className="font-serif text-[2rem] font-medium leading-[1.05] tracking-tight text-foreground md:text-[2.5rem] lg:text-[3rem]"
-                style={{ whiteSpace: "nowrap" }}
-                shuffleDirection="left"
-                textAlign="left"
-                animationMode="evenodd"
-                stagger={0.02}
-                duration={0.4}
-                triggerOnce
-                triggerOnHover={false}
-              />
+            <h1
+              ref={titleRef}
+              className="flex w-full flex-col font-serif text-[1.8rem] text-foreground md:text-[2.5rem] lg:text-[3rem]"
+            >
+              {LINES.map((line) => (
+                <div key={line} className="h-[1.5em] w-full">
+                  <TechText
+                    text={line}
+                    fontSize={fontSize}
+                    fontWeight={500}
+                    reveal="letter"
+                    dashLength={4}
+                    dashGap={2}
+                    specks={15}
+                    intro="none"
+                    introDuration={2}
+                    clickKick
+                    guides={false}
+                    letterSpacing={-0.05}
+                    accentColor="currentColor"
+                    reach={200}
+                    softness={0.7}
+                    lineStyle="dashed"
+                    strokeWidth={1.5}
+                    speed={1}
+                    bounce={0.4}
+                    selection
+                    labels
+                    color="currentColor"
+                    align="left"
+                    draggable
+                    sweep
+                  />
+                </div>
+              ))}
             </h1>
 
             <p className="max-w-[34ch] text-[22px] leading-[1.4] tracking-tight text-foreground/65">

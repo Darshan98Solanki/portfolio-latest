@@ -6,7 +6,7 @@ import { Stack } from "@/components/about/stack";
 import { HeroCarousel } from "@/components/about/hero-carousel";
 import ClickSpark from "@/components/ClickSpark";
 import { ContactCard } from "@/components/contact/contact-card";
-import { FadeIn } from "@/components/ui/motion-primitives";
+import { Reveal } from "@/components/FadeContent";
 import { getGalleryItems } from "@/lib/gallery";
 import { createMetadata } from "@/lib/metadata";
 import type { Metadata } from "next";
@@ -31,7 +31,7 @@ export default function AboutPage(): ReactNode {
         duration={400}
       >
         <section className="mx-auto w-full max-w-160 px-6 pt-44 pb-16 sm:px-10 sm:pt-56 sm:pb-24">
-          <FadeIn delay={0.3}>
+          <Reveal>
             <div className="border-foreground/5 bg-foreground/1.5 dark:bg-foreground/3 rounded-4xl border p-8 sm:p-12">
               <h1 className="text-foreground font-serif text-[1.75rem] font-medium tracking-tight sm:text-[2rem]">
                 Hello! I&rsquo;m{" "}
@@ -67,17 +67,16 @@ export default function AboutPage(): ReactNode {
                 </p>
               </div>
             </div>
-          </FadeIn>
+          </Reveal>
         </section>
 
         <section className="mx-auto w-full max-w-160 px-6 pb-20 sm:px-10 sm:pb-28">
-          <FadeIn delay={0.1}>
-            <div className="flex flex-col gap-10">
-              <Experience />
-              <Education />
-              <Skills />
-              <Stack />
-              <div className="relative h-48 overflow-hidden sm:h-56 md:h-64">
+          <div className="flex flex-col gap-10">
+              <Reveal><Experience /></Reveal>
+              <Reveal><Education /></Reveal>
+              <Reveal><Skills /></Reveal>
+              <Reveal><Stack /></Reveal>
+              <Reveal className="relative h-48 overflow-hidden sm:h-56 md:h-64">
                 <CircularGallery
                   title="Captured Moments"
                   items={galleryItems}
@@ -88,13 +87,12 @@ export default function AboutPage(): ReactNode {
                   font="bold 46px Orbitron"
                   scrollSpeed={3}
                 />
-              </div>
-              <HeroCarousel />
-            </div>
-          </FadeIn>
+              </Reveal>
+              <Reveal><HeroCarousel /></Reveal>
+          </div>
         </section>
 
-        <ContactCard />
+        <Reveal><ContactCard /></Reveal>
         <div className="h-12 sm:h-16" />
       </ClickSpark>
     </main>
