@@ -23,7 +23,7 @@ const items = [
   {
     icon: <FileText size={18} />,
     label: 'Resume',
-    onClick: () => window.open('https://drive.google.com/file/d/1uhXmKhtBWysBVjJtPcr5UvSqhnIb1gQ6/view?usp=sharing', '_blank'),
+    onClick: () => window.open('https://drive.google.com/file/d/1SevUM5Y-tt8UmVuS1YF6_kTc_g92IaIl/view?usp=sharing', '_blank'),
   },
 ];
 
